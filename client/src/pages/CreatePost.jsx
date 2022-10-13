@@ -29,10 +29,10 @@ const CreatePost = () => {
         {({ isSubmitting }) => (
           <Form className="formContainer">
             <label> Title</label>
-            <Field type="text" name="title" />
+            <Field type="text" name="title" id="inputCreatePost" />
             <ErrorMessage name="title" component="div" />
             <label> Body</label>
-            <Field type="text" name="body" />
+            <Field type="text" name="body" id="inputCreatePost" />
             <ErrorMessage name="body" component="div" />
             <button type="submit" disabled={isSubmitting}>
               Submit

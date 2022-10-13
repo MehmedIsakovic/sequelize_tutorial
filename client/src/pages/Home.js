@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App"> 
       {data.map((val, index) => {
         return (
           <div className="post" key={index}>
