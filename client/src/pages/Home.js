@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -11,11 +12,19 @@ const Home = () => {
     });
   }, []);
 
+  const navigate = useNavigate();
+
   return (
-    <div className="App"> 
+    <div className="App">
       {data.map((val, index) => {
         return (
-          <div className="post" key={index}>
+          <div
+            className="post"
+            key={index}
+            onClick={() => {
+              navigate(`/post/${val.id}`);
+            }}
+          >
             <div className="title">{val.title}</div>
             <div className="body">{val.body}</div>
           </div>

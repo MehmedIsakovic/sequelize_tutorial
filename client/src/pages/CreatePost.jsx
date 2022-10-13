@@ -1,7 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
+  const navigate = useNavigate();
   return (
     <div className="createPostPage">
       <Formik
@@ -22,6 +24,7 @@ const CreatePost = () => {
               .then((response) => {
                 console.log("IT WORKED");
               });
+            navigate("/");
             setSubmitting(false);
           }, 400);
         }}
