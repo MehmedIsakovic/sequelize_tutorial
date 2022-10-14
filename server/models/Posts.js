@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define(
+  const Posts = sequelize.define(
     "Posts",
     {
       id: {
@@ -21,4 +21,13 @@ module.exports = function (sequelize, DataTypes) {
       tableName: "Posts",
     }
   );
+
+  Posts.assoicate = function (models) {
+    Posts.hasMany(models.Comments, {
+      onDelete: "cascade",
+      foreignKey: "post_id",
+    });
+  };
+
+  return Posts;
 };
